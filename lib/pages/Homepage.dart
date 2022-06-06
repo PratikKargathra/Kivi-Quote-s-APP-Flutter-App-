@@ -26,14 +26,13 @@ class _HomepageState extends State<Homepage> with SingleTickerProviderStateMixin
     return Scaffold(
       appBar: AppBar(
         foregroundColor: const Color(0xff303030),
-        elevation: 0,
+        elevation: 1,
         leading: Transform.scale(
           scale: 0.6,
           child: IconButton(
             padding: const EdgeInsets.all(0),
             onPressed: (){
               (_animationController.isCompleted)?_animationController.reverse():_animationController.forward();
-              print(_animationController.status);
             },
             icon: AnimatedIcon(
               size: 50,
@@ -56,18 +55,28 @@ class _HomepageState extends State<Homepage> with SingleTickerProviderStateMixin
             ),
           ),
         ],
-        title: (searchbar)? TextField(
-          onSubmitted: (val){
-            query = searchController.text;
-            Navigator.pushNamed(context, "quotes_list_page");
-            searchController.clear();
-          },
-          controller: searchController,
-          decoration: const InputDecoration(
-            fillColor: Color(0xffEDEDED),
-            filled: true,
-            hintText: "Search Quotes",
-            border: InputBorder.none,
+        title: (searchbar)? Container(
+          padding: const EdgeInsets.only(left: 20),
+          decoration:  BoxDecoration(
+            color: const Color(0xffEDEDED),
+            borderRadius: BorderRadius.circular(50),
+          ),
+          child: TextField(
+            onSubmitted: (val){
+              if(val.isNotEmpty){
+                query = searchController.text;
+                Navigator.pushNamed(context, "quotes_list_page");
+                searchController.clear();
+              }
+              else{
+                searchbar = false;
+              }
+            },
+            controller: searchController,
+            decoration: const InputDecoration(
+              hintText: "Search Quotes",
+              border: InputBorder.none,
+            ),
           ),
         ):const Text("Kivi Quote's", style: TextStyle( fontWeight: FontWeight.w600, fontSize: 22),),
         backgroundColor: Colors.white,
@@ -260,6 +269,7 @@ class _HomepageState extends State<Homepage> with SingleTickerProviderStateMixin
         ),
       ),
       backgroundColor: const Color(0xffEDEDED),
+      resizeToAvoidBottomInset: false,
     );
   }
 }

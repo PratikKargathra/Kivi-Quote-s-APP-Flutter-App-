@@ -11,7 +11,6 @@ class APIHelper{
   String baseURL = "https://api.quotable.io/";
   String endPoint = "search/quotes?query=";
 
-
   Future<List<Quote>?> getQuotesList() async {
 
     Uri api =  Uri.parse(baseURL+endPoint+query);

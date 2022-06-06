@@ -22,6 +22,7 @@ class _MyAppState extends State<MyApp> {
       routes: {
         "/":(context) => const Homepage(),
         "quotes_list_page":(context) => const QuotesPage(),
+        "open_editor":(context) => const OpenQuotes(),
       },
     );
   }

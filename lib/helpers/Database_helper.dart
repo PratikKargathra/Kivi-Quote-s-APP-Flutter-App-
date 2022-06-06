@@ -28,7 +28,7 @@ class DBHelper{
         onCreate:(Database db, int version) async {
           categoryTable = "${query.toLowerCase().replaceAll(' ', '_')}table";
           String sqlQuery = "CREATE TABLE IF NOT EXISTS $categoryTable($colId INTEGER PRIMARY KEY AUTOINCREMENT, $colQuote TEXT, $colAuthor TEXT, $colFavorite TEXT, $colMarkedAsRead TEXT,$colBGImage TEXT);";
-          await db!.execute(sqlQuery);
+          await db.execute(sqlQuery);
         }
     );
     categoryTable = "${query.toLowerCase().replaceAll(' ', '_')}table";
@@ -53,6 +53,17 @@ class DBHelper{
     List<Map<String,dynamic>> dbData = await db!.rawQuery(sqlQuery);
     List<Quote>? finalData = dbData.map((e) => Quote.fromMap(e)).toList();
     return finalData;
+  }
+
+  Future<int> markAsRead({required int? id, required String markAsRead})async{
+    categoryTable = "${query.toLowerCase().replaceAll(' ', '_')}table";
+
+
+    String sqlQuery = "UPDATE $categoryTable SET $colMarkedAsRead = ?  WHERE $colId = ?";
+    List args = [markAsRead,id];
+
+
+    return await db!.rawUpdate(sqlQuery,args);
   }
 
 }
