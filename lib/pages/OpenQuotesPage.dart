@@ -57,7 +57,7 @@ class _OpenQuotesState extends State<OpenQuotes> {
             child: Text(args.quote,style:  TextStyle(color: textColor, fontSize: 20,),textAlign: textDirection,),
           ),
           const SizedBox(height: 60,),
-          sho wColorPanel?Container(
+          showColorPanel?Container(
             height: 60,
             width: MediaQuery.of(context).size.width*0.9,
             decoration: BoxDecoration(
