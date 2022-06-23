@@ -1,16 +1,23 @@
-# kiviquotes
+# KIVI Quotes App
 
-A new Flutter project.
+This app shows you Best Api use or Local Database also this app Ui is User Friendly.
 
-## Getting Started
+### Features
+  - Edit Quotes Image 
+  - Automatic Slider shows Difrent Quotes
+  - You can Search By Author name or search by tags ex power motivational or anything else.
+  - You Can Share Quotes With Other
+  - You Can Copy Quotes
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Use
+  - API 
+  - SQLite Local Database
+  - UI/UX
+  - Automation
+ 
+## OUTPUT
+![Uploading 1.png…]()
+![Uploading 2.png…]()
+![Uploading 3.png…]()
+![Uploading 4.png…]()
+![Uploading 5.png…]()
